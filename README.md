@@ -7,7 +7,7 @@ This client is only compatible with the ``3.X`` version of our product and will 
 ## Installation
 To install the cognigy client for your server project, use the following:
 ```
-npm i @cognigy/cognigy-client --save
+npm i @cognigy/cognigy-rest-client --save
 ```
 
 ## Usage
