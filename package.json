@@ -18,6 +18,9 @@
     "url": "https://github.com/Cognigy/RestClient/issues"
   },
   "homepage": "https://github.com/Cognigy/RestClient#readme",
+  "devDependencies": {
+      "typescript": "^3.1.6"
+  },
   "dependencies": {
     "request": "^2.88.0"
   }
