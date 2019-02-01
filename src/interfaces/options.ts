@@ -1,4 +1,4 @@
-import { CognigyError, IOutput } from "@cognigy/cognigy-client";
+import { IOutput } from "./output"
 
 export interface OptionsREST {
 	/** URL of REST Endpoint */
@@ -15,7 +15,6 @@ export interface OptionsREST {
 
 	keepMarkup?: boolean;
 
-	handleError?: (error: CognigyError) => void;
-	handleException?: (error: CognigyError) => void;
+	handleError?: (error: string) => void;
 	handleOutput?: (output: IOutput) => void;
 };

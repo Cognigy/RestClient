@@ -55,20 +55,27 @@ export class CognigyRESTClient {
 			body: payload
 		}, function (error, response, body){
 			if (error) {
-				console.log(error);
+				options.handleError ? options.handleError(error) : console.log("Error: " + error);
 			} else {
 				//console.log(response);
-				// the REST endpoint writes errors in the body
-				//console.log(body);
-				if (body && body.text) {
+				if (body) {
+					if (body.text) {
 
-					let output: IOutput;
-					output = body;
-					if (!options.keepMarkup) {
-						output.text = (output && output.text && typeof output.text === "string") ? output.text.replace(/<[^>]*>/g, "") : output.text;
+						let output: IOutput;
+						output = body;
+						if (!options.keepMarkup) {
+							output.text = (output && output.text && typeof output.text === "string") ? output.text.replace(/<[^>]*>/g, "") : output.text;
+						}
+	
+						options.handleOutput ? options.handleOutput(output) : console.log("Text: " + body.text + " Data: " + JSON.stringify(output.data));
+					} else {
+						// the REST endpoint writes errors in the body
+						options.handleError ? options.handleError(body) : console.log("Error: " + body);
 					}
-
-					options.handleOutput ? options.handleOutput(output) : console.log("Text: " + body.text + " Data: " + JSON.stringify(output.data));				}
+				} else {
+					//something weird happened
+					options.handleError ? options.handleError("empty body") : console.log("Error: " + "empty body");
+				}
 
 			}
 		});
