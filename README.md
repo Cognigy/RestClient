@@ -38,8 +38,7 @@ const options : OptionsREST = {
 
     /** Optional fields */
     keepMarkup: true,
-    handleError: (error: CognigyError) => { console.log(error); },
-    handleException: (error: CognigyError) => { console.log(error); }
+    handleError: (error: string) => { console.log(error); },
 };
 
 const client: CognigyRESTClient = new CognigyRESTClient(options);
