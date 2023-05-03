@@ -1,3 +1,5 @@
+# 🚨 Deprecation Notice: This Repository is Inactive and no longer maintained 🚨
+
 # CognigyClient
 Repo for the cognigy (server) client which can be used 
 to connect to the Cognigy.AI platform from server applications written in Node.JS.
